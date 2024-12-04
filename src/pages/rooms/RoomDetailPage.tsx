@@ -9,7 +9,6 @@ export interface IRoomDetailPageProps {}
 
 const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
     const { roomId } = useParams();
-    const room = FindRoomById(roomId);
 
     const [data, setData] = useState<Room | null>(null);
     const [isLoading, setLoading] = useState(true);
@@ -21,20 +20,6 @@ const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
             setLoading(false);
 		})();
 	}, []);
-
-    if (room === undefined) {
-        console.error("Id not found ", roomId);
-        return (
-            <>
-                <Navbar />
-                <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                    <p className="text-lg text-red-500 font-medium">
-                        Room not found (Room ID: {roomId})
-                    </p>
-                </div>
-            </>
-        );
-    }
 
     return (
         <>

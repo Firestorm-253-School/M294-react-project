@@ -21,7 +21,6 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
 
     if (!person)
     {
-        console.error("No person found ", personId)
         return <></>
     }
 
