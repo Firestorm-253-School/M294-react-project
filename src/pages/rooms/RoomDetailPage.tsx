@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 
 import Navbar from "../../components/Navbar";
-import { Get, Load } from "../../api";
+import { Load } from "../../api";
 import { FindRoomById, Room } from "../../interfaces/Room";
 
 export interface IRoomDetailPageProps {}
@@ -54,10 +54,10 @@ const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
                             <span className="font-semibold">Location:</span> {room.location}
                         </h3>
                         <h3 className="text-gray-700">
-                            <span className="font-semibold">Total Beds:</span> {room.totalBeds}
+                            <span className="font-semibold">Total Beds:</span> {room.totalbeds}
                         </h3>
                         <h3 className="text-gray-700">
-                            <span className="font-semibold">Total Rooms:</span> {room.totalRooms}
+                            <span className="font-semibold">Total Rooms:</span> {room.totalrooms}
                         </h3>
                     </div>
                     </>}/>

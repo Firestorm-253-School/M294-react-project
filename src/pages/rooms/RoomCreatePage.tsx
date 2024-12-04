@@ -60,14 +60,14 @@ const RoomCreatePage: React.FC<IRoomCreatePageProps> = (props) => {
 					</div>
 					<div>
 						<label
-							htmlFor="totalBeds"
+							htmlFor="totalbeds"
 							className="block text-sm font-medium text-gray-700"
 						>
 							Total Beds
 						</label>
 						<input
-							id="totalBeds"
-							name="totalBeds"
+							id="totalbeds"
+							name="totalbeds"
 							type="number"
 							placeholder="Total Beds"
 							className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
@@ -76,14 +76,14 @@ const RoomCreatePage: React.FC<IRoomCreatePageProps> = (props) => {
 					</div>
 					<div>
 						<label
-							htmlFor="totalRooms"
+							htmlFor="totalrooms"
 							className="block text-sm font-medium text-gray-700"
 						>
 							Total Rooms
 						</label>
 						<input
-							id="totalRooms"
-							name="totalRooms"
+							id="totalrooms"
+							name="totalrooms"
 							type="number"
 							placeholder="Total Rooms"
 							className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"

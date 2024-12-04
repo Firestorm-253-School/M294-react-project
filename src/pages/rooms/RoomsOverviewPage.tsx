@@ -56,13 +56,13 @@ const RoomsOverviewPage: React.FC<IRoomsOverviewPageProps> = (props) => {
 											<span className="font-medium">
 												Beds:
 											</span>{" "}
-											{entry.totalBeds}
+											{entry.totalbeds}
 										</p>
 										<p className="text-gray-600">
 											<span className="font-medium">
 												Rooms:
 											</span>{" "}
-											{entry.totalRooms}
+											{entry.totalrooms}
 										</p>
 									</Link>
 								));
