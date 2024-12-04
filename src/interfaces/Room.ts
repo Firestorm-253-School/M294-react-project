@@ -1,4 +1,4 @@
-import { rooms } from "../assets/roomsdb"
+import { Get } from "../api"
 
 export interface Room
 {
@@ -10,4 +10,26 @@ export interface Room
     totalRooms: number
 }
 
-export const FindRoomById = (id: string | undefined) => rooms.find(entry => entry.id === Number(id));
+export async function GetAll()
+{
+    const response: Room[] | undefined = await Get("rooms")
+
+    if (!response)
+    {
+        console.error(response)
+    }
+
+    return response!
+}
+
+export async function FindRoomById(id: string | undefined)
+{
+    const response: Room | undefined = await Get("rooms/" + id)
+
+    if (!response)
+    {
+        console.error(response)
+    }
+
+    return response!
+}

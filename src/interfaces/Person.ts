@@ -1,5 +1,4 @@
-import { people } from "../assets/persondb.ts";
-
+import { Get } from "../api"
 
 export interface Person
 {
@@ -10,5 +9,26 @@ export interface Person
     heightInMiliMeters: number
 }
 
-export const FindPersonById = (id: number) => people.find(entry => entry.id === id);
-export const FindPeopleByName = (name: string) => people.filter(entry => entry.name.includes(name));
+export async function GetAll()
+{
+    const response: Person[] | undefined = await Get("people")
+
+    if (!response)
+    {
+        console.error(response)
+    }
+
+    return response!
+}
+
+export async function FindPersonById(id: string | undefined)
+{
+    const response: Person | undefined = await Get("people/" + id)
+
+    if (!response)
+    {
+        console.error(response)
+    }
+
+    return response!
+}

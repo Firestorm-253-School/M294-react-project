@@ -2,20 +2,19 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router";
 
 import Navbar from "../../components/Navbar";
-import { Get, Load } from "../../api";
-import { Room } from "../../interfaces/Room";
+import { Load } from "../../api";
+import { Room, GetAll } from "../../interfaces/Room";
 
 export interface IRoomsOverviewPageProps {}
 
 const RoomsOverviewPage: React.FC<IRoomsOverviewPageProps> = (props) => {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState<Room[] | null>(null);
     const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		(async () => {
 			setLoading(true)
-			setData(await Get("rooms"));
-			//await Post({ name: "Laurin Zehnder", age: 21 }, "people")
+			setData(await GetAll());
 			setLoading(false)
 		})();
 	}, []);

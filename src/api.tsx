@@ -17,12 +17,11 @@ export const Get = async (request: string) => {
 	}
 };
 
-//data = { name: "John Doe", age: 30 }; // Example data to be sent in the body
 export const Post = async (data: object, request: string) => {
 	try {
-		const response = await fetch(address + request, {
+		console.log(address + "/" + request)
+		const response = await fetch(address + "/" + request, {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(data),
 		});
 
@@ -45,6 +44,7 @@ export interface ILoadProps {
 export const Load: React.FC<ILoadProps> = (props) => {
 	if (!props.data && !props.isLoading)
 	{
+		console.error("Not available")
 		return <>Not available</>
 	}
 	if (!props.isLoading)

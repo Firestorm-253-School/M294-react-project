@@ -11,15 +11,14 @@ const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
     const { roomId } = useParams();
     const room = FindRoomById(roomId);
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Room | null>(null);
     const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		(async () => {
             setLoading(true);
-			setData(await Get("rooms/" + roomId));
+			setData(await FindRoomById(roomId));
             setLoading(false);
-			//await Post({ name: "Laurin Zehnder", age: 21 }, "people")
 		})();
 	}, []);
 
@@ -42,7 +41,7 @@ const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
             <Navbar />
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
                 <div className="bg-white shadow-lg rounded-lg p-6 w-96">
-                    <Load data={data} isLoading={isLoading} func={(room: Room) => {<>
+                    <Load data={data} isLoading={isLoading} func={(room: Room) => <>
                     <p className="text-gray-600 font-medium mb-2">
                         <span className="font-semibold">Room ID:</span> {room.id}
                     </p>
@@ -61,7 +60,7 @@ const RoomDetailPage: React.FC<IRoomDetailPageProps> = (props) => {
                             <span className="font-semibold">Total Rooms:</span> {room.totalRooms}
                         </h3>
                     </div>
-                    </>}}/>
+                    </>}/>
                 </div>
             </div>
         </>
